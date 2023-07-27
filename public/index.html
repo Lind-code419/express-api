@@ -17,6 +17,8 @@
     <div x-data="{
         username : 'yoda',
         greeting : 'hello',
+        language : '', 
+
         greet() {
                 //call api
                 axios
@@ -44,11 +46,11 @@
         <input type="text" x-model="username">
         <input type="button" value="Greet" @click="greet()">
         <div>
-            <input type="radio" id="English" name="fav_language" value="english">
+            <input type="radio" id="English" name="fav_language" value="english" x-model="language">
             <label for="English">English</label>
-            <input type="radio" id="Xhosa" name="fav_language" value="xhosa">
+            <input type="radio" id="Xhosa" name="fav_language" value="xhosa" x-model="language">
             <label for="Xhosa">Xhosa</label><br>
-            <input type="radio" id="Zulu" name="fav_language" value="zulu">
+            <input type="radio" id="Zulu" name="fav_language" value="zulu" x-model="language">
             <label for="Zulu">Zulu</label><br>
         </div>
 
