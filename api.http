@@ -5,3 +5,22 @@ content-type: application/json
 	"language" : "xhosa",
 	"greeting" : "Molo"
 }
+
+###
+POST http://localhost:4009/api/greet
+content-type: application/json
+
+{
+	"language" : "zulu",
+	"greeting" : "Sawubona"
+}
+
+###
+
+POST http://localhost:4009/api/greet
+content-type: application/json
+
+{
+	"language" : "english",
+	"greeting" : "Hello"
+}

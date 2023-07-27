@@ -10,7 +10,7 @@ const greetings = {
     'xhosa' : 'Molo',
     'zulu' : 'Sawubona'
 }
-app.get('api/greet', function(req, res) {
+app.get('/api/greet', function(req, res) {
     const username = req.query.username;
     const language = req.query.language;
 
@@ -28,7 +28,7 @@ app.get('api/greet', function(req, res) {
 
 app.post('/api/greet', function(req, res) {
     const language = req.body.language;
-    greetings(language) = req.body.greeting
+    greetings[language] = req.body.greeting
     res.json({
         status : 'success',
         message: `added a greeting for ${language}` 
