@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+</head>
+
+<body style="background-color: aquamarine;
+            font-family: fantasy;
+            color: orange; text-align: center;">
+    <h1>Greet API app</h1>
+
+    <div x-data="{
+        username : 'yoda',
+        greeting : 'hello',
+        greet() {
+                //call api
+                axios
+                .get(`/api/greet?username=${this.username}&language=${this.language}`)
+                .then(result => {
+
+                    if (result.data.error) {
+                        this.greeting = result.data.error
+                    }
+                    else {
+                        this.greeting = result.data.message
+                    } 
+
+                    })
+
+
+            //this.greeting = this.username
+        }
+    }">
+
+
+        <div x-text="greeting">
+
+        </div>
+        <input type="text" x-model="username">
+        <input type="button" value="Greet" @click="greet()">
+        <div>
+            <input type="radio" id="English" name="fav_language" value="english">
+            <label for="English">English</label>
+            <input type="radio" id="Xhosa" name="fav_language" value="xhosa">
+            <label for="Xhosa">Xhosa</label><br>
+            <input type="radio" id="Zulu" name="fav_language" value="zulu">
+            <label for="Zulu">Zulu</label><br>
+        </div>
+
+    </div>
+    <div>
+        <h2>Add Language</h2>
+        <div>
+            Language<input type="text" x-model="new_language">
+            Greeting<input type="text" x-model="new_greeting">
+        </div>
+    </div>
+</body>
+
+</html>
